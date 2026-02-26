@@ -1,0 +1,27 @@
+#/** @file
+#
+#  Copyright (c) 2024, Mario Bălănică <mariobalanica02@gmail.com>
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+#  NOTE: Mainline kernel DTS for Orange Pi 5 Pro does not yet exist upstream.
+#  This file is a placeholder for when mainline support is added.
+#  Once the DTS is merged upstream, uncomment the Sources entry below.
+#
+#**/
+
+[Defines]
+  INF_VERSION                    = 0x0001001A
+  BASE_NAME                      = DeviceTree-Mainline
+  FILE_GUID                      = 0f73443a-7bb7-11ef-b25a-00163e21ee3a
+  MODULE_TYPE                    = USER_DEFINED
+  VERSION_STRING                 = 1.0
+
+# Uncomment when rk3588s-orangepi-5-pro.dts is available in mainline upstream:
+#[Sources]
+#  devicetree/mainline/upstream/src/arm64/rockchip/rk3588s-orangepi-5-pro.dts
+
+[Packages]
+  MdePkg/MdePkg.dec
+  Silicon/Rockchip/RockchipPkg.dec
+
