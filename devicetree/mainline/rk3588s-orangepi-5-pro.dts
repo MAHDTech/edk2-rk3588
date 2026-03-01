@@ -1,0 +1,51 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+//
+// Orange Pi 5 Pro — based on upstream Orange Pi 5 DTSI.
+// The 5 Pro shares the RK3588S SoC and most peripherals with the non-Pro.
+// Board-level differences: PCIe Ethernet (vs RGMII), onboard WiFi, eMMC.
+//
+// TODO: Remove this file once rk3588s-orangepi-5-pro.dts is merged upstream.
+
+/dts-v1/;
+
+#include "upstream/src/arm64/rockchip/rk3588s-orangepi-5.dtsi"
+
+/ {
+	model = "Xunlong Orange Pi 5 Pro";
+	compatible = "xunlong,orangepi-5-pro", "rockchip,rk3588s";
+
+	/* 3.3 V rail for PCIe Ethernet NIC — active-high enable on GPIO3_B7 */
+	vcc3v3_pcie_eth: regulator-vcc3v3-pcie-eth {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc3v3_pcie_eth";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-boot-on;
+		regulator-always-on;
+		enable-active-high;
+		gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
+		vin-supply = <&vcc_3v3_s3>;
+	};
+};
+
+/* eMMC — enabled on the Pro (disabled in shared dtsi) */
+&sdhci {
+	status = "okay";
+};
+
+/* GMAC — Pro uses PCIe NIC, not RGMII. Disable SoC GMAC. */
+&gmac1 {
+	status = "disabled";
+};
+
+/* PCIe 2.0 x1 lane 1 (pcie2x1l1 @ fe180000) */
+&pcie2x1l1 {
+	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
+	status = "okay";
+};
+
+/* PCIe 2.0 x1 lane 2 (pcie2x1l2 @ fe190000) — Ethernet NIC */
+&pcie2x1l2 {
+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+	status = "okay";
+};

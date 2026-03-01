@@ -82,11 +82,15 @@
 
   #
   # PCIe/SATA/USB Combo PIPE PHY support flags and default values
+  # Combo PHY 0 = PCIe 2.0 x1 for Ethernet NIC (pcie2x1l2 @ fe190000)
+  # Combo PHY 2 = PCIe 2.0 x1 for M.2 NVMe     (pcie2x1l1 @ fe180000)
+  # NOTE: Combo PHY 2 was USB3 by default. Changed to PCIe for NVMe.
+  #       USB3 port on fcd00000 will be disabled. Switchable at runtime.
   #
   gRK3588TokenSpaceGuid.PcdComboPhy0Switchable|TRUE
   gRK3588TokenSpaceGuid.PcdComboPhy2Switchable|TRUE
   gRK3588TokenSpaceGuid.PcdComboPhy0ModeDefault|$(COMBO_PHY_MODE_PCIE)
-  gRK3588TokenSpaceGuid.PcdComboPhy2ModeDefault|$(COMBO_PHY_MODE_USB3)
+  gRK3588TokenSpaceGuid.PcdComboPhy2ModeDefault|$(COMBO_PHY_MODE_PCIE)
 
   #
   # USB/DP Combo PHY support flags and default values
@@ -130,7 +134,7 @@
 
   # Device Tree Support
   $(PLATFORM_DIRECTORY)/DeviceTree/Vendor.inf
-  # Mainline.inf excluded until rk3588s-orangepi-5-pro.dts is available upstream
+  $(PLATFORM_DIRECTORY)/DeviceTree/Mainline.inf
 
   # Splash screen logo
   $(VENDOR_DIRECTORY)/Drivers/LogoDxe/LogoDxe.inf
