@@ -101,8 +101,6 @@
   #
   # GMAC
   #
-  gRK3588TokenSpaceGuid.PcdGmac1Supported|TRUE
-  gRK3588TokenSpaceGuid.PcdGmac1TxDelay|0x42
 
   #
   # I2S
