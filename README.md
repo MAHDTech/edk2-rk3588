@@ -407,6 +407,10 @@ The firmware can only be built on Linux currently. For Windows use WSL.
    sudo pacman -Syu
    sudo pacman -S git base-devel gcc dtc aarch64-linux-gnu-binutils aarch64-linux-gnu-gcc aarch64-linux-gnu-glibc python python-pyelftools iasl --needed
    ```
+   For Nix/NixOS:
+   ```bash
+   nix-shell -p git gnumake gcc acpica-tools python3 python3Packages.pyelftools util-linux dtc pkgsCross.aarch64-multiplatform.buildPackages.gcc
+   ```
 
 2. Clone the repository:
    ```bash

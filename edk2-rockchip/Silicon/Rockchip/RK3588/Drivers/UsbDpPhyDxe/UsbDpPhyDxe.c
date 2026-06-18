@@ -20,6 +20,8 @@
  *
  **/
 
+#pragma GCC diagnostic ignored "-Wunused-function"
+
 #include <Protocol/DpPhy.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/DebugLib.h>
