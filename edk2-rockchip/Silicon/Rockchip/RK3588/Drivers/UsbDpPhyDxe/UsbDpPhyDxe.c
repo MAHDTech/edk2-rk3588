@@ -20,6 +20,7 @@
  *
  **/
 
+
 #pragma GCC diagnostic ignored "-Wunused-function"
 
 #include <Protocol/DpPhy.h>
@@ -32,7 +33,6 @@
 #include <Soc.h>
 
 #include "uboot-env.h"
-
 #include "UsbDpPhy.h"
 
 #define BIT_WRITEABLE_SHIFT	16

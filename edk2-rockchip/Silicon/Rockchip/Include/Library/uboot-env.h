@@ -29,7 +29,7 @@ typedef BOOLEAN bool;
 typedef UINT16 __be16;
 
 #define udelay(x)	MicroSecondDelay (x)
-#define mdelay(x) 	MicroSecondDelay (x * 1000)
+#define mdelay(x) 	MicroSecondDelay ((x) * 1000)
 
 #define dev_err(dev, args...)  	DEBUG ((DEBUG_ERROR, args))
 #define dev_info(dev, args...)  DEBUG ((DEBUG_INFO, args))
