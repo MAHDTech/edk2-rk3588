@@ -258,6 +258,11 @@ SetRk860xRegulatorByTag (
       goto CloseProtocol;
     }
 
+    Status = Rk860xRegulator->SetEnable (Rk860xRegulator, TRUE);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((DEBUG_ERROR, "Failed to enable regulator. Status=%r\n", Status));
+    }
+
     Status = Rk860xRegulator->GetVoltage (Rk860xRegulator, &Voltage, FALSE);
     if (EFI_ERROR (Status)) {
       DEBUG ((DEBUG_ERROR, "Failed to get voltage. Status=%r\n", Status));
