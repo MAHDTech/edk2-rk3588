@@ -224,6 +224,7 @@ function _build(){
         -D NETWORK_ALLOW_HTTP_CONNECTIONS=TRUE \
         -D NETWORK_ISCSI_ENABLE=TRUE \
         -D INCLUDE_TFTP_COMMAND=TRUE \
+        -D RK_X86_EMULATOR_ENABLE=FALSE \
         --pcd gRockchipTokenSpaceGuid.PcdFitImageFlashAddress=0x100000 \
         ${EDK2_FLAGS}
 
