@@ -184,7 +184,7 @@ function _build(){
 
         # Unset conflicting host environment variables in a subshell
         (
-            unset CC CXX LD AS AR NM OBJCOPY OBJDUMP STRIP RANLIB READELF
+            unset CC CXX LD AS AR NM OBJCOPY OBJDUMP STRIP RANLIB READELF CFLAGS LDFLAGS CPPFLAGS
             make PLAT=${TFA_PLAT} DEBUG=${DEBUG} CROSS_COMPILE=${CROSS_COMPILE} all ${TFA_FLAGS}
         )
 
