@@ -247,8 +247,10 @@ PcieIoInit (
   )
 {
   /* Set reset to gpio output mode */
-  if(Segment == PCIE_SEGMENT_PCIE20L2) { // M.2 M Key
+  if(Segment == PCIE_SEGMENT_PCIE20L2) { // Ethernet NIC
     GpioPinSetDirection (3, GPIO_PIN_PD1, GPIO_PIN_OUTPUT);
+  } else if (Segment == PCIE_SEGMENT_PCIE20L1) { // M.2 M Key NVMe
+    GpioPinSetDirection (4, GPIO_PIN_PA2, GPIO_PIN_OUTPUT);
   }
 }
 
@@ -259,7 +261,15 @@ PciePowerEn (
   BOOLEAN Enable
   )
 {
-  /* nothing to power on */
+  if (Segment == PCIE_SEGMENT_PCIE20L2) {
+    /* vcc3v3_pcie_eth (gpio3 PB7) */
+    GpioPinWrite (3, GPIO_PIN_PB7, Enable);
+    GpioPinSetDirection (3, GPIO_PIN_PB7, GPIO_PIN_OUTPUT);
+  } else if (Segment == PCIE_SEGMENT_PCIE20L1) {
+    /* vcc3v3_pcie20 (gpio0 PA4) */
+    GpioPinWrite (0, GPIO_PIN_PA4, Enable);
+    GpioPinSetDirection (0, GPIO_PIN_PA4, GPIO_PIN_OUTPUT);
+  }
 }
 
 VOID
@@ -271,6 +281,8 @@ PciePeReset (
 {
   if(Segment == PCIE_SEGMENT_PCIE20L2) {
     GpioPinWrite (3, GPIO_PIN_PD1, !Enable);
+  } else if (Segment == PCIE_SEGMENT_PCIE20L1) {
+    GpioPinWrite (4, GPIO_PIN_PA2, !Enable);
   }
 }
 
