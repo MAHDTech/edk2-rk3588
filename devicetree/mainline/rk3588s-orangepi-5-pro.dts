@@ -30,24 +30,24 @@
 
 /* eMMC — enabled on the Pro (disabled in shared dtsi) */
 &sdhci {
-	status = "okay";
+	status = "disabled";
 };
 
 /* GMAC — Pro uses RGMII Motorcomm PHY. Enable SoC GMAC. */
 &gmac1 {
-	status = "okay";
+	status = "disabled";
 };
 
 /* PCIe 2.0 x1 lane 1 (pcie2x1l1 @ fe180000) */
 &pcie2x1l1 {
 	reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_HIGH>;
-	status = "okay";
+	status = "disabled";
 };
 
 /* PCIe 2.0 x1 lane 2 (pcie2x1l2 @ fe190000) — Ethernet NIC */
 &pcie2x1l2 {
 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-	status = "okay";
+	status = "disabled";
 };
 
 /* Disable audio codec to prevent I2C timeouts */
