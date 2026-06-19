@@ -258,7 +258,7 @@ SetRk860xRegulatorByTag (
       goto CloseProtocol;
     }
 
-    Status = Rk860xRegulator->SetEnable (Rk860xRegulator, TRUE);
+    Status = Rk860xRegulator->SetEnable (Rk860xRegulator, TRUE, FALSE);
     if (EFI_ERROR (Status)) {
       DEBUG ((DEBUG_ERROR, "Failed to enable regulator. Status=%r\n", Status));
     }
