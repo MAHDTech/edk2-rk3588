@@ -61,7 +61,8 @@
   gRockchipTokenSpaceGuid.PcdFamilyName|"Orange Pi 5"
   gRockchipTokenSpaceGuid.PcdProductUrl|"http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html"
   gRockchipTokenSpaceGuid.PcdDeviceTreeName|"rk3588s-orangepi-5-pro"
-  gRK3588TokenSpaceGuid.PcdFdtCompatModeDefault|$(FDT_COMPAT_MODE_VENDOR)
+  gRK3588TokenSpaceGuid.PcdConfigTableModeDefault|$(CONFIG_TABLE_MODE_FDT)
+  gRK3588TokenSpaceGuid.PcdFdtCompatModeDefault|$(FDT_COMPAT_MODE_MAINLINE)
 
   # I2C
   gRockchipTokenSpaceGuid.PcdI2cSlaveAddresses|{ 0x42, 0x43, 0x51, 0x10 }
@@ -76,6 +77,9 @@
   #
   # CPU Performance default values
   #
+  gRK3588TokenSpaceGuid.PcdCPULClusterClockPresetDefault|$(CPU_PERF_CLUSTER_CLOCK_PRESET_BOOTDEFAULT)
+  gRK3588TokenSpaceGuid.PcdCPUB01ClusterClockPresetDefault|$(CPU_PERF_CLUSTER_CLOCK_PRESET_BOOTDEFAULT)
+  gRK3588TokenSpaceGuid.PcdCPUB23ClusterClockPresetDefault|$(CPU_PERF_CLUSTER_CLOCK_PRESET_BOOTDEFAULT)
 
   #
   # PCIe/SATA/USB Combo PIPE PHY support flags and default values
@@ -113,11 +117,15 @@
   #
   # Display support flags and default values
   #
-  gRK3588TokenSpaceGuid.PcdDisplayForceOutputDefault|TRUE
+  gRK3588TokenSpaceGuid.PcdDisplayForceOutputDefault|FALSE
   gRK3588TokenSpaceGuid.PcdDisplayConnectors|{CODE({
     VOP_OUTPUT_IF_HDMI0,
     VOP_OUTPUT_IF_DP0
   })}
+
+[PcdsDynamicHii.common.DEFAULT]
+  gRK3588TokenSpaceGuid.PcdCoolingFanSpeed|L"CoolingFanSpeed"|gRK3588DxeFormSetGuid|0x0|100
+
 ################################################################################
 #
 # Components Section - list of all EDK II Modules needed by this Platform.
