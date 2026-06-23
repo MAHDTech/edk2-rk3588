@@ -43,7 +43,7 @@
 		reset-names = "srst_a", "srst_h";
 		power-domains = <&power RK3588_PD_NPUTOP>;
 		iommus = <&rknn_mmu_0>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	rknn_mmu_0: iommu@fdab9000 {
@@ -55,7 +55,7 @@
 		clock-names = "aclk", "iface";
 		power-domains = <&power RK3588_PD_NPUTOP>;
 		#iommu-cells = <0>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	rknn_core_1: npu@fdac0000 {
@@ -74,7 +74,7 @@
 		reset-names = "srst_a", "srst_h";
 		power-domains = <&power RK3588_PD_NPU1>;
 		iommus = <&rknn_mmu_1>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	rknn_mmu_1: iommu@fdaca000 {
@@ -86,7 +86,7 @@
 		clock-names = "aclk", "iface";
 		power-domains = <&power RK3588_PD_NPU1>;
 		#iommu-cells = <0>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	rknn_core_2: npu@fdad0000 {
@@ -105,7 +105,7 @@
 		reset-names = "srst_a", "srst_h";
 		power-domains = <&power RK3588_PD_NPU2>;
 		iommus = <&rknn_mmu_2>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	rknn_mmu_2: iommu@fdada000 {
@@ -117,7 +117,7 @@
 		clock-names = "aclk", "iface";
 		power-domains = <&power RK3588_PD_NPU2>;
 		#iommu-cells = <0>;
-		status = "okay";
+		status = "disabled";
 	};
 };
 
